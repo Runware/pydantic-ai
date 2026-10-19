@@ -322,6 +322,10 @@ def infer_provider_class(provider: str) -> type[Provider[Any]]:  # noqa: C901
         from .sambanova import SambaNovaProvider
 
         return SambaNovaProvider
+    elif provider == 'runware':
+        from .runware import RunwareProvider
+
+        return RunwareProvider
     elif provider == 'sentence-transformers':
         from .sentence_transformers import SentenceTransformersProvider
 

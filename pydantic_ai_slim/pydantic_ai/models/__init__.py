@@ -153,6 +153,7 @@ OpenAIChatCompatibleProvider = TypeAliasType(
         'ollama',
         'openrouter',
         'ovhcloud',
+        'runware',
         'sambanova',
         'snowflake',
         'together',
