@@ -225,6 +225,40 @@ print(result.output)
 #> The capital of France is Paris.
 ```
 
+## Runware
+
+To use [Runware](https://runware.ai/), create an API key in the [Runware dashboard](https://runware.ai/).
+
+Runware serves models from many labs behind one OpenAI-compatible endpoint, under `<vendor>-<model>` ids such as `anthropic-claude-opus-4-7`, `google-gemini-3-1-flash-lite`, and `zai-glm-5-1`. The vendor prefix selects the [model profile](#model-profile), so keep it on the name.
+
+You can set the `RUNWARE_API_KEY` environment variable and use [`RunwareProvider`][pydantic_ai.providers.runware.RunwareProvider] by name:
+
+```python
+from pydantic_ai import Agent
+
+agent = Agent('runware:anthropic-claude-opus-4-7')
+...
+```
+
+Or initialise the model and provider directly:
+
+```python
+from pydantic_ai import Agent
+from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.providers.runware import RunwareProvider
+
+model = OpenAIChatModel(
+    'anthropic-claude-opus-4-7',
+    provider=RunwareProvider(api_key='your-runware-api-key'),
+)
+agent = Agent(model)
+...
+```
+
+The `RunwareProvider` uses `https://api.runware.ai/v1` by default. You can override this by passing a custom `base_url` or setting the `RUNWARE_BASE_URL` environment variable.
+
+For a complete list of available models, see the [Runware model catalog](https://runware.ai/docs/models-api/introduction).
+
 ## SambaNova
 
 To use [SambaNova Cloud](https://cloud.sambanova.ai/), you need to obtain an API key from the [SambaNova Cloud dashboard](https://cloud.sambanova.ai/dashboard).

@@ -95,6 +95,7 @@ bedrock-mantle = ["openai>=3.26.0", "botocore>=1.42.63"]
 zai = ["openai>=3.26.0"]
 snowflake = ["openai>=3.26.0"]
 crusoe = ["openai>=3.26.0"]
+runware = ["openai>=3.26.0"]
 cerebras = ["openai>=3.26.0"]
 typesafe = ["typesafe-sdk>=0.6.0"]
 huggingface = [
